@@ -51,7 +51,7 @@ var correctAnswers=0;
 var incorrectAnswers=0;
 
 for (var i = 0; i < randomQuestions.length; i++) {
-    $("#questionArea").append(`<br><p>${randomQuestions[i].question}</p>`);
+    $("#questionArea").append(`<br><p><strong>${randomQuestions[i].question}</strong></p>`);
     for (var j = 0; j < randomQuestions[i].choices.length; j++) {
 
         $("#questionArea").append(`<input type="radio" name="question${i}" questionNumber=${i} value="${randomQuestions[i].choices[j]}" correctAnswer=${randomQuestions[i].answer} class='answers'>${randomQuestions[i].choices[j]}<br>`)

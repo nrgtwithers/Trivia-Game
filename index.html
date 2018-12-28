@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Custom CSS StyleSheet -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Bootstrap CSS Framework -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>Best Guess | Trivia Game</title>
 </head>
 <body>
-
+<!-- Nav Bar -->
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#"><h1>Best Guess Game</h1></a>
 </nav>
-
+<!-- Trivia Game -->
 <div class="container">
+    <!--counter -->
+    <div id="counter"></div>
+    <div id="score"></div>
+    <div id="correctAnswers"></div>   
+    <div id="incorrectAnswers"></div>
+    <!-- Question -->
     <div id="questionArea"></div>
-    <div id="answerArea"></div>
+
+
 
 </div>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Javascript -->
 <script src="assets/javascript/app.js"></script>
 </body>
 </html>

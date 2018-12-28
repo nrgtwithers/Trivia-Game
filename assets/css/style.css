@@ -1,18 +1,20 @@
 html, body {
     color: white !important;
-    background-image: url(../images/question-mark.jpg);
+    /* background-image: url(../images/question-mark.jpg); */
+    background-color: white;
     background-size: 100%;
     /* background-repeat:no-repeat; */
     font-family: Arial, Helvetica, sans-serif !important;
 }
 
 h1{
-    font-family: arial !important;
-    color:rgb(33, 36, 36) !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    color: #000000 !important;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 50px;
-    margin-bottom: 0px;
+    float: left;
+    /* margin-bottom: 0px; */
 }
 
 h3{
@@ -22,18 +24,31 @@ h3{
     font-size: 30px;
 }
 
+img{
+    text-align:center;
+}
+
 .header{
-    text-align: left;
-    margin-left: 100px;
-    margin-top: 50px;
+    margin-top: 5%;
+    text-align: center;
     background-color: transparent;
 }
 
 .container{
-    float: right !important;
-    border-color: transparent !important;
-    margin-left: 600px !important;
-    margin-right: 0px !important;
-    width: 100% !important;
-    background-color: transparent;
+    float: left !important;
+    text-align: center;
+    width: 40% !important;
+    color: white;
+    background-color: black;
+    margin-right: 30% !important;
+    margin-left: 30% !important;
+    margin-top: 1% !important;
+    opacity: 0.75;
+    padding: 15px;
+}
+
+#counter{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }

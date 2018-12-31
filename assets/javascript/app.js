@@ -41,52 +41,61 @@ var randomQuestions = [{
     answer: 0,
 },
 ];
-
+//Test for array
 console.log(randomQuestions)
 
 // Variables - Scores & Counter
 var score = 0;
-var counter = 60;
-var correctAnswers=0;
-var incorrectAnswers=0;
+var counter = 30;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var unanswered = 8;
 
+
+// Display Question & Choices
 for (var i = 0; i < randomQuestions.length; i++) {
-    $("#questionArea").append(`<br><p><strong>${randomQuestions[i].question}</strong></p>`);
+    $("#questionArea").append(`<br><h5><strong>${randomQuestions[i].question}</strong></h5>`);
     for (var j = 0; j < randomQuestions[i].choices.length; j++) {
 
         $("#questionArea").append(`<input type="radio" name="question${i}" questionNumber=${i} value="${randomQuestions[i].choices[j]}" correctAnswer=${randomQuestions[i].answer} class='answers'>${randomQuestions[i].choices[j]}<br>`)
     }
 }
 
+
+// Creating Timer to answer questions. Providing option to play the game again.
 function setTimer() {
-  var timer = setInterval(() => {
+    var timer = setInterval(() => {
         counter--;
         $("#counter").text(`You have ${counter} seconds.`)
-        // $("#correctAnswers").text(`Correct Answers: ${correctAnswers}`)
-        // $("#incorrectAnswers").text(`Incorrect Answers: ${incorrectAnswers}`)
-        // $("#scores").text(`Your score is ${score}`)
-        // $("#questionArea").empty()
         if (counter == 0) {
             $("#score").text(`Your Score is ${score}`)
             var playAgain = confirm(`Would you like to play again?`)
             if (playAgain) {
-                counter = 60;
-                score =0;
+                counter = 30;
+                score = 0;
 
-                
+                $("#score").hide()
                 $("#questionArea").show()
             } else {
                 clearInterval(timer)
+                $("scores").show()
+                $("#questionArea").hide()
                 $("#correctAnswers").text(`Correct Answers: ${correctAnswers}`)
                 $("#incorrectAnswers").text(`Incorrect Answers: ${incorrectAnswers}`)
+                var unansweredTotal = unanswered - correctAnswers - incorrectAnswers;
+                $("#unanswered").text(`Unanswered: ${unansweredTotal}`)
+                console.log(unanswered)
+                // $("scores").show()
                 $("#scores").text(`Your score is ${score}`)
-                $("#questionArea").hide()
+                // $("#questionArea").hide()
             }
         }
     }, 1000);
 }
-
+// Call function
 setTimer();
+
+// On click function for answer whether True or False (Adding to Score if Correct)
 
 $(document).on("click", ".answers", function () {
     var userPick = $(this).attr("value")
@@ -94,65 +103,11 @@ $(document).on("click", ".answers", function () {
     var correctAnswer = $(this).attr("correctAnswer")
     if (userPick == randomQuestions[questionNumber].choices[correctAnswer]) {
         correctAnswers++;
+        score++;
         console.log("you're right!")
     } else {
         incorrectAnswers++;
         console.log("you're wrong!")
-    }
-    // console.log(userPick)
-    // console.log(questionNumber)
+    } 
 
 })
-
-// Creating Timer to answer questions
-
-// Display Question & Choices
-
-// On click function for answer whether True or False (Adding to Score if Correct)
-
-// Call functions
-
-//DOM
-
-// //display question and loop though and display possible answers
-// function displayQuestion() {
-// 	//generate random index in array
-// 	index = Math.floor(Math.random()*randomQuestions.length);
-// 	pick = options[index];
-
-// // 	if (pick.shown) {
-// // //		//recursive to continue to generate new index until one is chosen that has not shown in this game yet
-// // 		displayQuestion();
-// // 	} else {
-// // 		console.log(pick.question);
-// 		//iterate through answer array and display
-// 		$("#questionArea").html("<h2>" + pick.question + "</h2>");
-// 		for(var i = 0; i < pick.choices.length; i++) {
-// 			var userChoices = $("<div>");
-// 			userChoices.addClass("answerchoice");
-// 			userChoices.html(pick.choice[i]);
-// 			//assign array position to it so can check answer
-// 			userChoices.attr("data-guessvalue", i);
-// 			$("#answerArea").append(userChoices);
-// 		}
-// }
-
-// displayQuestion();
-
-// Trivia Q & A
-// Timer 60-90 seconds
-// Scores
-// Reset or Reload
-// Using jQuery to add elements onto html
-
-
-
-// for (var i=0; i< randomQuestions.length; i++){
-//     var response = window.prompt(randomQuestions[i].prompt);
-//     if(response == randomQuestions[i].answer){
-//         score++;
-//         alert("Correct!");
-//     } else{
-//         alert("Wrong!");
-//     }
-// }

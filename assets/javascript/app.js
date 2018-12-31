@@ -51,7 +51,6 @@ var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 8;
 
-
 // Display Question & Choices
 for (var i = 0; i < randomQuestions.length; i++) {
     $("#questionArea").append(`<br><h5><strong>${randomQuestions[i].question}</strong></h5>`);
@@ -61,9 +60,8 @@ for (var i = 0; i < randomQuestions.length; i++) {
     }
 }
 
-
 // Creating Timer to answer questions. Providing option to play the game again.
-function setTimer() {
+setTimeout(function(timer){
     var timer = setInterval(() => {
         counter--;
         $("#counter").text(`You have ${counter} seconds.`)
@@ -71,11 +69,8 @@ function setTimer() {
             $("#score").text(`Your Score is ${score}`)
             var playAgain = confirm(`Would you like to play again?`)
             if (playAgain) {
-                counter = 30;
-                score = 0;
-
-                $("#score").hide()
-                $("#questionArea").show()
+                //Reload page to start again
+                location.reload();
             } else {
                 clearInterval(timer)
                 $("scores").show()
@@ -91,9 +86,12 @@ function setTimer() {
             }
         }
     }, 1000);
-}
+    // Delay for timer to start
+}, 2000); 
+
 // Call function
-setTimer();
+// setTimeout();
+// setTimer();
 
 // On click function for answer whether True or False (Adding to Score if Correct)
 

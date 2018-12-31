@@ -73,6 +73,7 @@ setTimeout(function(timer){
                 location.reload();
             } else {
                 clearInterval(timer)
+                $("#counter").hide()
                 $("scores").show()
                 $("#questionArea").hide()
                 $("#correctAnswers").text(`Correct Answers: ${correctAnswers}`)

@@ -10,18 +10,21 @@
     <!-- Bootstrap CSS Framework -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <!-- Title -->
     <title>Best Guess | Trivia Game</title>
 </head>
 
 <body>
     <!-- Header -->
-    <div class="header"><img src="assets/images/game-logo.png"></div>
+    <div id="header" class="animated forwards fadeInDown delay-2s"><img src="assets/images/game-logo.png"></div>
     <!-- Trivia Game -->
     <div class="container">
         <!-- delay for game to start -->
         <div id="delay"></div>
         <!--counter -->
-        <div id="counter"></div>
+        <div id="counter" class="animated infinite flash"></div>
         <!-- score -->
         <div id="score"></div>
         <!-- correct -->

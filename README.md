@@ -13,5 +13,12 @@ Created a Trivia game using JavaScript for the logic and jQuery to manipulate HT
 
 After completing the game the users score will pop up, along with the correct answers, incorrect answers, and unanswered.
 
+### Screenshots
+
+![Beginning](https://github.com/nrgtwithers/Trivia-Game/blob/master/2019-01-03.png?raw=true)
+![Timer](https://github.com/nrgtwithers/Trivia-Game/blob/master/2019-01-03%20(1).png?raw=true)
+![Done](https://github.com/nrgtwithers/Trivia-Game/blob/master/2019-01-03%20(5).png?raw=true)
+![Score](https://github.com/nrgtwithers/Trivia-Game/blob/master/2019-01-03%20(4).png?raw=true)
+
 #### Good luck! 
 Hope you answer correctly.

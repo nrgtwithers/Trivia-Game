@@ -52,7 +52,7 @@ var incorrectAnswers = 0;
 var unanswered = 8;
 var timer;
 
-//Start
+//Start button
 $(".container").hide();
 $("#start").click(function () {
     $(this).hide();
@@ -60,7 +60,7 @@ $("#start").click(function () {
     $(".container").show();
 })
 
-//Done
+//Done button
 $("#done").click(function () {
     $(this).hide()
     clearInterval(timer)
@@ -75,7 +75,7 @@ for (var i = 0; i < randomQuestions.length; i++) {
         $("#questionArea").append(`<input type="radio" name="question${i}" questionNumber=${i} value="${randomQuestions[i].choices[j]}" correctAnswer=${randomQuestions[i].answer} class='answers'>${randomQuestions[i].choices[j]}<br>`)
     }
 }
-
+//Shows total score, correct, incorrect answers and unanswered
 function endGame(correctAnswers, incorrectAnswers, unanswered, score) {
     $("#counter").hide();
     $("#score").show();
@@ -94,7 +94,6 @@ setTimeout(function (timer) {
         counter--;
         $("#counter").text(`You have ${counter} seconds.`)
         if (counter == 0) {
-            // $("#score").text(`Your Score is ${score}`)
             clearInterval(timer)
             endGame(correctAnswers, incorrectAnswers, unanswered, score);
         }

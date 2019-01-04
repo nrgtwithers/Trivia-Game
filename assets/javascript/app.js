@@ -50,6 +50,22 @@ var counter = 30;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 8;
+var timer;
+
+//Start
+$(".container").hide();
+$("#start").click(function () {
+    $(this).hide();
+    clearInterval(timer)
+    $(".container").show();
+})
+
+//Done
+$("#done").click(function () {
+    $(this).hide()
+    clearInterval(timer)
+    endGame(correctAnswers, incorrectAnswers, unanswered, score);
+})
 
 // Display Question & Choices
 for (var i = 0; i < randomQuestions.length; i++) {
@@ -60,39 +76,33 @@ for (var i = 0; i < randomQuestions.length; i++) {
     }
 }
 
+function endGame(correctAnswers, incorrectAnswers, unanswered, score) {
+    $("#counter").hide();
+    $("#score").show();
+    $("#done").hide();
+    $("#questionArea").hide();
+    $("#score").text(`Your score is ${score}`);
+    $("#correctAnswers").text(`Correct Answers: ${correctAnswers}`);
+    $("#incorrectAnswers").text(`Incorrect Answers: ${incorrectAnswers}`);
+    var unansweredTotal = unanswered - correctAnswers - incorrectAnswers;
+    $("#unanswered").text(`Unanswered: ${unansweredTotal}`);
+}
+
 // Creating Timer to answer questions. Providing option to play the game again.
-setTimeout(function(timer){
-    var timer = setInterval(() => {
+setTimeout(function (timer) {
+     timer = setInterval(() => {
         counter--;
         $("#counter").text(`You have ${counter} seconds.`)
         if (counter == 0) {
-            $("#score").text(`Your Score is ${score}`)
-            var playAgain = confirm(`Would you like to play again?`)
-            if (playAgain) {
-                //Reload page to start again
-                location.reload();
-            } else {
-                clearInterval(timer)
-                $("#counter").hide()
-                $("scores").show()
-                $("#questionArea").hide()
-                $("#correctAnswers").text(`Correct Answers: ${correctAnswers}`)
-                $("#incorrectAnswers").text(`Incorrect Answers: ${incorrectAnswers}`)
-                var unansweredTotal = unanswered - correctAnswers - incorrectAnswers;
-                $("#unanswered").text(`Unanswered: ${unansweredTotal}`)
-                console.log(unanswered)
-                // $("scores").show()
-                $("#scores").text(`Your score is ${score}`)
-                // $("#questionArea").hide()
-            }
+            // $("#score").text(`Your Score is ${score}`)
+            clearInterval(timer)
+            endGame(correctAnswers, incorrectAnswers, unanswered, score);
         }
     }, 1000);
     // Delay for timer to start
-}, 2000); 
+}, 1);
 
-// Call function
-// setTimeout();
-// setTimer();
+var collection = [];
 
 // On click function for answer whether True or False (Adding to Score if Correct)
 
@@ -100,13 +110,17 @@ $(document).on("click", ".answers", function () {
     var userPick = $(this).attr("value")
     var questionNumber = $(this).attr("questionNumber")
     var correctAnswer = $(this).attr("correctAnswer")
-    if (userPick == randomQuestions[questionNumber].choices[correctAnswer]) {
-        correctAnswers++;
-        score++;
-        console.log("you're right!")
-    } else {
-        incorrectAnswers++;
-        console.log("you're wrong!")
-    } 
+    if (collection.indexOf(userPick) == -1 ){
+        collection.push(userPick)
+        if (userPick == randomQuestions[questionNumber].choices[correctAnswer]) {
+            correctAnswers++;
+            score++;
+            console.log("you're right!")
+        } else {
+            incorrectAnswers++;
+            console.log("you're wrong!")
+        }
+    }
+    
 
 })

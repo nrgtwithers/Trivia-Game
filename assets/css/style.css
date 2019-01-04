@@ -47,13 +47,33 @@ img{
     padding: 15px;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#start, #done{
+    margin: auto;
+    padding: 15px;
+    width: 150px;
+    height: 80px;
+    border-radius: 15px;
+    border-color: black;
+    text-align: center;
+    font-size: 30px;
+    background-color: rgb(75, 195, 243);
+    color: white;
+    font-weight: bold;
+}
+
 #counter{
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 10px;
     color: rgb(75, 195, 243);
     animation-duration: 2s;
-    animation-delay: 22s;
+    animation-delay: 20s;
     animation-iteration-count: infinite;
 }
 
